@@ -18,20 +18,14 @@ class Solution(object):
             delta = target - numbers[i]
 
             beg = i+1
-            end = len(numbers)
-            mid = int(math.floor((beg + end) / 2))
+            end = len(numbers)-1
+            mid = (beg + end) // 2
 
-            while beg < end:
+            while beg <= end:
                 if numbers[mid] < delta:
                     beg = mid + 1
                 elif numbers[mid] > delta:
                     end = mid - 1
                 else:
                     return [i+1, mid+1]
-                mid = int(math.floor((beg+end)/2))
-
-
-if __name__ == "__main__":
-    Solution().twoSum([2,7,11,15], 9)
-
-
+                mid = (beg + end) // 2
